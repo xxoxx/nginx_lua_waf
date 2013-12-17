@@ -37,8 +37,8 @@ make -j8
 make install 
 #rm -rf /data/src
 cd /data/src
-wget https://github.com/loveshell/ngx_lua_waf/archive/master.zip --no-check-certificate
-unzip master
+wget https://github.com/wocai/nginx_lua_waf/archive/master.zip -O nginx_lua_waf.zip --no-check-certificate
+unzip nginx_lua_waf.zip
 mv ngx_lua_waf-master/* /etc/nginx/wafconf/
 rm -rf ngx_lua_waf-master
 mkdir -p /data/logs/hack
