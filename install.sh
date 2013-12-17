@@ -1,4 +1,7 @@
 rpm -ivh ftp://ftp.pbone.net/mirror/dl.iuscommunity.org/pub/ius/stable/Redhat/6/i386/epel-release-6-5.noarch.rpm
+cur_dir=$(pwd)
+cp $cur_dir/centalt.repo /etc/yum.repos.d/
+cp $cur_dir/dag.repo /etc/yum.repos.d/
 yum install unzip openssl-devel nginx gcc gcc-c++ libstdc++-devel automake cmake lua lua-devel -y
 rm -rf /data/src
 rm -rf /usr/local/lj2/
