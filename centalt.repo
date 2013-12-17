@@ -1,0 +1,5 @@
+[centalt]
+name=CentALT Packages for Enterprise Linux 5 - $basearch
+baseurl=http://centos.alt.ru/repository/centos/6/$basearch/
+enabled=1
+gpgcheck=0
