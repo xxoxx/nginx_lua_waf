@@ -1,4 +1,4 @@
-yum install unzip onenssl-devel gcc gcc-c++ libstdc++-devel automake cmake lua lua-devel -y
+yum install unzip openssl-devel nginx gcc gcc-c++ libstdc++-devel automake cmake lua lua-devel -y
 rm -rf /data/src
 rm -rf /usr/local/lj2/
 rm -rf /usr/local/nginx/
@@ -41,5 +41,8 @@ wget https://github.com/wocai/nginx_lua_waf/archive/master.zip -O nginx_lua_waf.
 unzip nginx_lua_waf.zip
 mv nginx_lua_waf-master/* /etc/nginx/wafconf/
 rm -rf nginx_lua_waf-master
+mv /usr/sbin/nginx /usr/sbin/nginx_baka
+cp /usr/local/nginx/sbin/nginx /usr/sbin/nginx
 mkdir -p /data/logs/hack
 chmod -R 775 /data/logs/hack
+service nginx restart
