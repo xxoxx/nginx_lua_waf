@@ -1,4 +1,4 @@
-RulePath = "/usr/local/nginx/conf/waf/wafconf/"
+RulePath = "/usr/local/nginx/conf/wafconf/"
 attacklog = "on"
 logdir = "/usr/local/nginx/logs/hack/"
 UrlDeny="on"
