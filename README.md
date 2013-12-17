@@ -1,5 +1,8 @@
 ###使用说明：
 modefy by ngx_lua_waf
+
+
+
 在/etc/nginx/nginx.conf的http段添加
     lua_package_path "/etc/nginx/wafconf/?.lua";
     lua_shared_dict limit 10m;
