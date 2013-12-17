@@ -4,6 +4,7 @@ rm -rf /usr/local/lj2/
 rm -rf /usr/local/nginx/
 rm -rf /lib64/libluajit*
 mkdir -p /data/src
+mkdir -p /etc/nginx/wafconf/
 cd /data/src
 if [ ! -x "LuaJIT-2.0.2.tar.gz" ]; then  
 wget http://luajit.org/download/LuaJIT-2.0.2.tar.gz
@@ -35,10 +36,10 @@ ldconfig
 make -j8
 make install 
 #rm -rf /data/src
-cd /usr/local/nginx/conf/
+cd /data/src
 wget https://github.com/loveshell/ngx_lua_waf/archive/master.zip --no-check-certificate
 unzip master
-mv ngx_lua_waf-master/* /usr/local/nginx/conf/
+mv ngx_lua_waf-master/* /etc/nginx/wafconf/
 rm -rf ngx_lua_waf-master
 mkdir -p /data/logs/hack
 chmod -R 775 /data/logs/hack
