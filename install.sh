@@ -39,7 +39,7 @@ make install
 cd /data/src
 wget https://github.com/wocai/nginx_lua_waf/archive/master.zip -O nginx_lua_waf.zip --no-check-certificate
 unzip nginx_lua_waf.zip
-mv ngx_lua_waf-master/* /etc/nginx/wafconf/
-rm -rf ngx_lua_waf-master
+mv nginx_lua_waf-master/* /etc/nginx/wafconf/
+rm -rf nginx_lua_waf-master
 mkdir -p /data/logs/hack
 chmod -R 775 /data/logs/hack
