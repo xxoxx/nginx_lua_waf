@@ -1,17 +1,17 @@
 ###使用说明：
-nginx安装路径假设为:/usr/local/nginx/conf/
-把ngx_lua_waf下载到conf目录下,解压命名为waf
-在nginx.conf的http段添加
-	lua_package_path "/usr/local/nginx/conf/waf/?.lua";
-        lua_shared_dict limit 10m;
-        init_by_lua_file  /usr/local/nginx/conf/waf/init.lua; 
-    	access_by_lua_file /usr/local/nginx/conf/waf/waf.lua;
+modefy by ngx_lua_waf
+在/etc/nginx/nginx.conf的http段添加
+    lua_package_path "/etc/nginx/wafconf/?.lua";
+    lua_shared_dict limit 10m;
+    init_by_lua_file  /etc/nginx/wafconf/init.lua;
+    access_by_lua_file /etc/nginx/wafconf/waf.lua;
+
 配置config.lua里的waf规则目录(一般在waf/conf/目录下)
-        RulePath = "/usr/local/nginx/conf/waf/wafconf/"
+        RulePath = "/etc/nginx/wafconf/wafconf/"
 绝对路径如有变动，需对应修改
-然后重启nginx即可
+然后重启nginx即可 service nginx restart
 ###配置文件详细说明：
-    	RulePath = "/usr/local/nginx/conf/waf/wafconf/"
+    	RulePath = "/etc/nginx/wafconf/wafconf/"
         --规则存放目录
         attacklog = "off"
         --是否开启攻击信息记录，需要配置logdir
