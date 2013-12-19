@@ -33,7 +33,7 @@ function write(logfile,msg)
 end
 function log(method,url,data,ruletag)
     if attacklog then
-	    local post_data_log
+	    local post_data_log=''
 	    local realIp = getClientIp()
 	local request_url="http://"..ngx.var.host..ngx.var.request_uri
 	local a_rule=ruletag
@@ -41,6 +41,7 @@ function log(method,url,data,ruletag)
     	local time=ngx.localtime()
 	local receive_headers = ngx.req.get_headers()
 	a_rule=string.gsub(a_rule,"\\","")
+	if method== "POST" then
         if string.sub(receive_headers["content-type"],1,20) == "multipart/form-data;" then
 	post_data_log="multipart/form-data"
 	else
@@ -48,6 +49,7 @@ function log(method,url,data,ruletag)
         end
         if post_data_log==nil then
 		post_data_log=''
+	end
 	end
 		    line = realIp.." ["..time.."] \""..method.." "..request_url.."\" \"".."post_data:"..post_data_log.."\"  \""..a_rule.."\"\n"
 	    local filename = logpath..'/'..servername.."_"..ngx.today().."_sec.log"
