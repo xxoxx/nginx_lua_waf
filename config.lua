@@ -1,6 +1,6 @@
 RulePath = "/etc/nginx/wafconf/wafconf/"
 attacklog = "on"
-logdir = "/usr/local/nginx/logs/hack/"
+logdir = "/data/logs/hack/"
 UrlDeny="on"
 Redirect="on"
 CookieMatch="on"
@@ -10,4 +10,4 @@ ipWhitelist={"127.0.0.1"}
 ipBlocklist={"1.0.0.1"}
 CCDeny="off"
 CCrate="100/60"
-html=[[Please go away~~ ]]
+html=[[wo you yi ge xiao mao lu wo chong lai ye bu qi~~ ]]
