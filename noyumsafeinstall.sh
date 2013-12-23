@@ -1,4 +1,4 @@
-yum install unzip openssl-devel nginx gcc gcc-c++ libstdc++-devel automake cmake lua lua-devel -y
+yum install unzip openssl-devel nginx gcc gcc-c++ libstdc++-devel automake cmake lua lua-devel pcre-devel -y
 rm -rf /data/src
 rm -rf /usr/local/lj2/
 rm -rf /usr/local/nginx/
