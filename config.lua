@@ -10,4 +10,4 @@ ipWhitelist={"127.0.0.1"}
 ipBlocklist={"1.0.0.1"}
 CCDeny="off"
 CCrate="100/60"
-html=[[wo you yi ge xiao mao lu wo chong lai ye bu qi~~ ]]
+html=[[{"code":404,"status":404,"msg":404}]]
