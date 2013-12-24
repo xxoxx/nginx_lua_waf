@@ -53,4 +53,4 @@ modefy by ngx_lua_waf
 		post是只在post请求过滤的规则		
 		whitelist是白名单，里面的url匹配到不做过滤		
 		user-agent是对user-agent的过滤规则
-	默认开启了get和post过滤，需要开启cookie过滤的，编辑waf.lua取消部分--注释即可
+	默认开启了get和post过滤，需要开启cookie过滤的，编辑waf.lua取消部分--注释即可1
