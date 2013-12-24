@@ -332,9 +332,9 @@ local receive_headers = ngx.req.get_headers()
 local request_method = ngx.var.request_method
 if request_method == "POST" then
 ngx.req.read_body()
-if string.sub(receive_headers["content-type"],1,20) == "multipart/form-data;" then--判断是否是multipart/form-data类型的表单
-is_have_file_param = true
-content_type = receive_headers["content-type"]
+--if string.sub(receive_headers["content-type"],1,20) == "multipart/form-data;" then--判断是否是multipart/form-data类型的表单
+--is_have_file_param = true
+--content_type = receive_headers["content-type"]
 body_data = ngx.req.get_body_data()--body_data可是符合http协议的请求体，不是普通的字符串
 --请求体的size大于nginx配置里的client_body_buffer_size，则会导致请求体被缓冲到磁盘临时文件里，client_body_buffer_size默认是8k或者16k
 if not body_data then
@@ -361,6 +361,9 @@ if not body_data then
 if error_code==1 then
 return true
 end
+if string.sub(receive_headers["content-type"],1,20) == "multipart/form-data;" then--判断是否是multipart/form-data类型的表单
+is_have_file_param = true
+content_type = receive_headers["content-type"]
 local boundary = "--" .. string.sub(receive_headers["content-type"],31)
 local body_data_table = explode(tostring(body_data),boundary)
 local first_string = table.remove(body_data_table,1)
@@ -378,21 +381,12 @@ for i,v in ipairs(body_data_table) do
     end
 end
 else
-local args_post = ngx.req.get_post_args()
     for _,rule in pairs(argsrules) do
-    local args_post = ngx.req.get_post_args()
-        for key, val in pairs(args_post) do
-            if type(val)=='table' then
-                data=table.concat(val, " ")
-            else
-                data=val
-            end
-            if data and type(data) ~= "boolean" and rule ~="" and ngxmatch(unescape(data),rule,"isjo") then
-                                log('POST',ngx.var.host,"-",rule)
+            if  body_data and type(body_data) ~= "boolean" and rule ~="" and ngxmatch(unescape(body_data),rule,"isjo") then
+                log('POST',ngx.var.host,"-",rule)
                 say_html()
                 return true
             end
-        end
     end
 
 end
