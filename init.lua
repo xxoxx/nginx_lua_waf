@@ -326,6 +326,7 @@ end
 
 function post_check()
 local args = {}
+local error_code
 local file_args = {}
 local is_have_file_param = false
 local receive_headers = ngx.req.get_headers()
