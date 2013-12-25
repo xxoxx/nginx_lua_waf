@@ -40,6 +40,9 @@ function log(method,url,data,ruletag)
 	local servername=ngx.var.server_name
     	local time=ngx.localtime()
 	local receive_headers = ngx.req.get_headers()
+	if a_rule == nil then
+	a_rule=''
+	end
 	a_rule=string.gsub(a_rule,"\\","")
 	if method== "POST" then
         if string.sub(receive_headers["content-type"],1,20) == "multipart/form-data;" then
