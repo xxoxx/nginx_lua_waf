@@ -45,7 +45,7 @@ function log(method,url,data,ruletag)
 	end
 	a_rule=string.gsub(a_rule,"\\","")
 	if method== "POST" then
-        if string.sub(receive_headers["content-type"],1,20) == "multipart/form-data;" then
+        if receive_headers["content-type"] ~= nil and string.sub(receive_headers["content-type"],1,20) == "multipart/form-data;" then
 	post_data_log="multipart/form-data"
 	else
         post_data_log = ngx.req.get_body_data()
